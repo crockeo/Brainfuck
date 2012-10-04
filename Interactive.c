@@ -12,7 +12,9 @@ void interactive() {
 		printf(">>> ");
 		scanf("%s", input);
 		
-		if (!
+		if (equals(input, "quit"))
+			break;
+		eval(input);
 
 		printf("\n");
 	}

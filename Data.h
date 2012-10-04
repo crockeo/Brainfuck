@@ -1,6 +1,8 @@
 #ifndef DATA_H
 #define DATA_H
 
+const char* VERSION = "0.0.1";
+
 const char INDEX_UP = '>';
 const char INDEX_DOWN = '<';
 const char CHAR_UP = '+';

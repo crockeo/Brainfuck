@@ -1,0 +1,5 @@
+== A TODO File for Crockeo's Brainfuck implementation ==
+
+* Implement Static parsing
+* Implement looping
+* Make it look a little bit better
