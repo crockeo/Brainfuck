@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
 		printf("Usage: brainfuck [file location]");
 	} else {
 		printf("Brainfuck -- Written by Cerek Hillen\n");
-		printf("Version: %s", VERSION);
+		printf("Version: %s\n", VERSION);
 
 		interactive();
 	}

@@ -1,15 +1,17 @@
 #ifndef DATA_H
 #define DATA_H
 
-const char* VERSION = "0.0.1";
+// The version
+extern const char* VERSION;
 
-const char INDEX_UP = '>';
-const char INDEX_DOWN = '<';
-const char CHAR_UP = '+';
-const char CHAR_DOWN = '-';
-const char OUTPUT = '.';
-const char INPUT = ',';
-const char BEGIN_LOOP = '[';
-const char END_LOOP = ']';
+// Some interpreter operations
+extern const char INDEX_UP;
+extern const char INDEX_DOWN;
+extern const char CHAR_UP;
+extern const char CHAR_DOWN;
+extern const char OUTPUT;
+extern const char INPUT;
+extern const char BEGIN_LOOP;
+extern const char END_LOOP;
 
 #endif

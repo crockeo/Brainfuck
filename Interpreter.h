@@ -1,9 +1,9 @@
 #ifndef INTERPRETER_H
 #define INTERPRETER_H
 
-void init(int size);
-void cleanUp();
+void initInterpreter(int size);
+void cleanUpInterpreter();
 
-void eval(char*);
+int eval(char*);
 
 #endif
