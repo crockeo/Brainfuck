@@ -30,6 +30,12 @@ int dataSize;
 char* data;
 int index;
 
+int isGettingLoopString = 0;
+int isGettingTimesToLoop = 0;
+int timesToLoop = 1;
+char* loopString = NULL;
+int loopStringIndex = 0;
+
 // Initializing the interpreter
 void initInterpreter(int size) {
 	dataSize = size;
@@ -42,59 +48,52 @@ void initInterpreter(int size) {
 void cleanUpInterpreter() { free(data); }
 
 // Evaluating a string
-int eval(char* string) {
+int evalString(char* string) {
 	if (equals(string, "quit") || equals(string, "exit"))
 		return 1;
-
-	int isGettingLoopString = 0;
-	int isGettingTimesToLoop = 0;
-	int timesToLoop = 1;
-	char* loopString = NULL;
-	int loopStringIndex = 0;
-
-	for (int i = 0; i < getSize(string); i++) {
-		if (isGettingLoopString) {
-			if (string[i] == ']') {
-				isGettingLoopString = 0;
-				isGettingTimesToLoop = 1;
-			} else {
-				loopString[loopStringIndex] = string[i];
-				loopStringIndex++;
-			}
-		} else if (isGettingTimesToLoop) {
-			if (string[i] == '+')
-				timesToLoop++;
-			else {
-				isGettingTimesToLoop = 0;
-				loop(loopString, timesToLoop);
-			}	
-		} else {
-			if (string[i] == INDEX_UP)
-				up();
-			else if (string[i] == INDEX_DOWN)
-				down();
-			else if (string[i] == CHAR_UP)
-				upChar();
-			else if (string[i] == CHAR_DOWN)
-				downChar();
-			else if (string[i] == OUTPUT)
-				out();
-			else if (string[i] == INPUT)
-				in();
-			else if (string[i] == BEGIN_LOOP) {
-				isGettingLoopString = 1;
-				loopString = (char*)malloc(128 * sizeof(char));
-				loopStringIndex = 0;
-			} else if (string[i] == END_LOOP) {
-				printf("ERROR: End of loop before beginning of loop.\n");
-			}
-		}
-	} if (isGettingTimesToLoop) {
-		isGettingTimesToLoop = 0;
-		loop(loopString, timesToLoop);
-	}
+	
+	for (int i = 0; i < getSize(string); i++)
+		evalChar(string[i]);
 
 	return 0;
+}
+
+// Evaluating a given character
+void evalChar(char c) {
+	if (isGettingLoopString) {
+		if (c == ']') {
+			isGettingLoopString = 0;
+			isGettingTimesToLoop = 1;
+		} else {
+			loopString[loopStringIndex] = c;
+			loopStringIndex++;
+		}
+	} else if (isGettingTimesToLoop) {
+		if (c == '+')
+			timesToLoop++;
+		else {
+			isGettingTimesToLoop = 0;
+			loop(loopString, timesToLoop);
+		}	
+	} else {
+		if (c == INDEX_UP)
+			up();
+		else if (c == INDEX_DOWN)
+			down();
+		else if (c == CHAR_UP)
+			upChar();
+		else if (c == CHAR_DOWN)
+			downChar();
+		else if (c == OUTPUT)
+			out();
+		else if (c == INPUT)
+			in();
+		else if (c == BEGIN_LOOP) {
+			isGettingLoopString = 1;
+			loopString = (char*)malloc(128 * sizeof(char));
+			loopStringIndex = 0;
+		}
+	}
 }
 
 // Eval operations
@@ -118,5 +117,5 @@ void in() { data[index] = getchar(); }
 
 void loop(char* operation, int timesToLoop) {
 	for (int i = 0; i < timesToLoop; i++)
-		eval(operation);
+		evalString(operation);
 }

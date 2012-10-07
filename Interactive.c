@@ -16,7 +16,7 @@ void interactive() {
 		printf(">>> ");
 		scanf("%s", input);
 		
-		if (eval(input) == 1)
+		if (evalString(input) == 1)
 			break;
 
 		free(input);

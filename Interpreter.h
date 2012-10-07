@@ -4,6 +4,7 @@
 void initInterpreter(int size);
 void cleanUpInterpreter();
 
-int eval(char*);
+int evalString(char*);
+void evalChar(char);
 
 #endif
