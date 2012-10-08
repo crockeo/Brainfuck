@@ -28,4 +28,5 @@ void staticRead(char* location) {
 
 	// Cleaning up after yourself
 	cleanUpInterpreter();
+	printf("\n");
 }
