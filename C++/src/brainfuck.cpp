@@ -2,10 +2,26 @@
 
 //////////////
 // Includes //
+#include <string>
 #include <vector>
 
 //////////
 // Code //
+
+// Creating a BrainfuckException with a given message.
+BrainfuckException::BrainfuckException(std::string msg) {
+    this->msg = msg;
+}
+
+// Creating a BrainfuckException with a generic message.
+BrainfuckException::BrainfuckException() {
+    this->msg = "Generic Brainfuck exception.\n";
+}
+
+// Returning a c_str() version of msg.
+const char* BrainfuckException::what() const throw() {
+    return this->msg.c_str();
+}
 
 // Creating the internal state with a given size.
 BrainfuckState::BrainfuckState(int size) {

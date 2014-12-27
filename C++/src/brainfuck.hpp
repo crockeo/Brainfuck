@@ -3,6 +3,8 @@
 
 //////////////
 // Includes //
+#include <exception>
+#include <string>
 #include <vector>
 
 //////////
@@ -10,6 +12,21 @@
 
 // The maximum size of the brainfuck array.
 const static int DEFAULT_SIZE = 30000;
+
+class BrainfuckException : public std::exception {
+private:
+    std::string msg;
+
+public:
+    // Creating a BrainfuckException with a given message.
+    BrainfuckException(std::string);
+
+    // Creating a BrainfuckException with a generic message.
+    BrainfuckException();
+
+    // Returning a c_str() version of msg.
+    const char* what() const throw();
+};
 
 // The internal state of the brainfuck array.
 class BrainfuckState {
