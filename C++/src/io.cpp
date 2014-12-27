@@ -6,6 +6,7 @@
 #include <istream>
 #include <string>
 
+#include "brainfuck.hpp"
 #include "parser.hpp"
 
 //////////
