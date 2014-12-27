@@ -18,7 +18,7 @@ BrainfuckState doLoop(BrainfuckState state, std::string str, int& loc) {
             throw BrainfuckException("Expected a ']' to close the loop.\n");
     }
 
-    std::string sub = str.substr(loc + 1, eloc - 1);
+    std::string sub = str.substr(loc + 1, eloc - 2);
     while (state.peek())
         state = runParser(state, sub);
     loc = eloc + 1;
