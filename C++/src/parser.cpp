@@ -51,8 +51,6 @@ BrainfuckState parseChar(BrainfuckState state, char c) {
         throw BrainfuckException("Unexpected '['!\n");
     case ']':
         throw BrainfuckException("Unexpected ']'!\n");
-    default:
-        throw BrainfuckException("Unexpected character!\n");
     }
 
     return state;
