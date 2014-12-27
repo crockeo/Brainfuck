@@ -11,6 +11,6 @@
 // Code //
 
 // Running a parser on an input and a BrainfuckState.
-BrainfuckState runParser(BrainfuckState, std::istream&);
+BrainfuckState runParser(BrainfuckState, std::istream&) throw(BrainfuckException);
 
 #endif
