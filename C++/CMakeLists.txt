@@ -13,6 +13,7 @@ add_executable(brainfuck src/main.cpp)
 
 # Adding a library.
 add_library(brainfuck-lib src/brainfuck.cpp
-                          src/parser.cpp)
+                          src/parser.cpp
+                          src/io.cpp)
 
 target_link_libraries(brainfuck brainfuck-lib)
