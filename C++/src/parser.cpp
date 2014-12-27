@@ -10,6 +10,6 @@
 // Code //
 
 // Running a parser on an input and a BrainfuckState.
-BrainfuckState runParser(BrainfuckState state, std::istream& in) throw(BrainfuckException) {
+BrainfuckState runParser(BrainfuckState state, std::string str) throw(BrainfuckException) {
     return state;
 }
