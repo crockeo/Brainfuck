@@ -31,9 +31,13 @@ BrainfuckState parseChar(BrainfuckState state, char c) {
     switch (c) {
     case '>':
         state.loc++;
+        if (state.loc >= state.size())
+            state.loc = 0;
         break;
     case '<':
         state.loc--;
+        if (state.loc < 0)
+            state.loc = state.size() - 1;
         break;
     case '+':
         state.poke(state.peek() + 1);
