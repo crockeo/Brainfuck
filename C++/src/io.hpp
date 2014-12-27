@@ -13,6 +13,6 @@
 void runProgram(std::istream&);
 
 // Running a program based on a given file path.
-void runProgram(std::string);
+void runProgram(std::string) throw(std::string);
 
 #endif

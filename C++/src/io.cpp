@@ -26,10 +26,10 @@ void runProgram(std::istream& stream) {
 }
 
 // Running a program based on a given file path.
-void runProgram(std::string path) {
+void runProgram(std::string path) throw(std::string) {
     std::ifstream reader(path);
     if (!reader.good())
-        return;
+        throw std::string("Failed to open source file.");
 
     runProgram(reader);
 
