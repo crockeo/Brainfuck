@@ -26,13 +26,13 @@ public:
     BrainfuckState();
 
     // Peeking at the current index.
-    unsigned char peek();
+    unsigned char peek() const;
 
     // Poking at the current index.
     void poke(unsigned char);
 
     // Getting the current size.
-    int getSize();
+    int size() const;
 };
 
 #endif

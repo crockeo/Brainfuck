@@ -20,10 +20,14 @@ BrainfuckState::BrainfuckState() {
 }
 
 // Peeking at the current index.
-unsigned char BrainfuckState::peek() { return this->data[this->loc]; }
+unsigned char BrainfuckState::peek() const {
+    return this->data[this->loc];
+}
 
 // Poking at the current index.
 void BrainfuckState::poke(unsigned char byte) { this->data[this->loc] = byte; }
 
 // Getting the current size.
-int BrainfuckState::getSize() { return this->data.size(); }
+int BrainfuckState::size() const {
+    return this->data.size();
+}
