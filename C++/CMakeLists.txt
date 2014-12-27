@@ -10,3 +10,8 @@ set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 
 # Setting up the app.
 add_executable(brainfuck src/main.cpp)
+
+# Adding a library.
+add_library(brainfuck-lib src/brainfuck.cpp)
+
+target_link_libraries(brainfuck brainfuck-lib)
